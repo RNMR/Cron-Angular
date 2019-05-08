@@ -13,6 +13,9 @@ import { CounterAction, initialState } from 'src/redux/counter';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
+  //  https://www.npmjs.com/package/ngx-cron-editor
+  //  npm i cron-editor -S
+  sin=true;
   public cronExpression = '0 0 0 1/1 * ? *';
   title = 'dad';
   tracks = [

@@ -1,0 +1,29 @@
+<div class="signer__board">
+  <h1>
+    A firmar
+  </h1>
+  
+  <signature-pad
+    [options]="options" 
+    (onBeginEvent)="drawBegin()" 
+    (onEndEvent)="drawComplete()" 
+    #sigPad
+  > </signature-pad>
+  
+  <div class="signer__cheap">
+    <div class="signer__board">
+      <b>value:</b>
+      <pre>
+        {{sigPad.value | json}}
+      </pre>
+    </div>
+    <div class="signer__board">
+      <b>valueChanged to:</b>
+      <pre>
+        {{lastChange | json}}
+      </pre>
+    </div>
+  </div>
+  
+  <button class="btn btn-outline-secondary" (click)="sigPad.clear()">Clear</button>
+</div>

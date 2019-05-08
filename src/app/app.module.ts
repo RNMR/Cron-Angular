@@ -9,15 +9,21 @@ import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
 import { CronEditorModule } from "cron-editor";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+//Components
+import { SignerComponent } from './components/signer/signer.component';
+//Imports
+import { SignaturePadModule } from 'angular2-signaturepad';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SignerComponent,
   ],
   imports: [
     CronEditorModule,
     BrowserModule,
     DragDropModule,
+    SignaturePadModule,
     FormsModule,
     ReactiveFormsModule,
     StoreModule.forRoot(reducers, { metaReducers }),

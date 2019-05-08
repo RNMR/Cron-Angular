@@ -1,6 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
-
-<div class="board">
+<div class="d-flex w-100 justify-content-center py-3"> 
+  <button (click)="sin=!sin">{{sin? 'To Signer!':'To Drag & Drop!'}}</button>
+</div>
+<div *ngIf="sin" class="board">
   <div class="card-list" *ngFor="let track of tracks; let i = index">
     <h2 cdkDragHandle class="mat-h2" style="text-align: center;">{{track.title}}</h2>
     <div class="card-list-content bg-{{i}}" cdkDropList [id]="track.id" [cdkDropListData]="track.tasks"
@@ -12,6 +14,9 @@
       </div>
     </div>
   </div>
+</div>
+<div *ngIf="!sin" class="board">
+  <signer-comp style="width:100%;"></signer-comp>
 </div>
 
 <div class="cron__board">

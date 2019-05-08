@@ -1,0 +1,12 @@
+.signer{
+  &__board{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &__cheap{
+    display: flex;
+    width: 100%;
+  }
+}
