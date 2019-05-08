@@ -3,6 +3,8 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 import { CronOptions } from "cron-editor/cron-editor";
 import { FormGroup, FormControl } from '@angular/forms';
 import { CronEditorComponent } from "cron-editor";
+import { Store } from '@ngrx/store';
+import { CounterAction, initialState } from 'src/redux/counter';
 
 @Component({
   selector: 'app-root',
@@ -97,11 +99,16 @@ export class AppComponent {
     return this.tracks.map(track => track.id);
   } //This returns all ids to [cdkDropListConnectedTo]
 
-  constructor(){
+  constructor( private store :Store<any>){
     this.wee = new FormGroup({
       cronEx: new FormControl(this.cronExpression)
     })
     // this.wee.get('cronEx')
+    this.store.dispatch( new CounterAction.Increment() )
+
+    this.store.select('initialState').subscribe(d=>{
+      console.log("hahss",d)
+    })
   }
 
   onTaskDrop(event: CdkDragDrop<any[]>) {
@@ -120,8 +127,9 @@ export class AppComponent {
   }
 
   inOut(d){
-    console.log(d, "oh");
     this.cronExpression = d;
+    console.log(this.cronExpression, "oh");
+    this.cronEditorDemo.options = this.cronOptions;
     this.cronEditorDemo.regenerateCron()
   }
 

@@ -19,7 +19,6 @@ export function counterReducer(state = initialState, action: CounterAction.Actio
       }
     
     case CounterAction.Types.Decrem:
-      const { ha } = action.payload
       return {
         ...state,
         loading: true,

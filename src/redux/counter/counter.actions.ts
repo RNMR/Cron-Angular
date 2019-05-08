@@ -10,17 +10,17 @@ export namespace CounterAction {
   
   export class Increment implements Action {
     readonly type = Types.Increm
-    constructor( public payload: any ) {}
+    // constructor( public payload: any ) {}
   }
   
   export class Decrement implements Action {
     readonly type = Types.Decrem
-    constructor( public payload: any ) {}
+    // constructor( public payload: any ) {}
   }
   
   export class Reset implements Action {
     readonly type = Types.Reset
-    constructor( public payload: any ) {}
+    // constructor( public payload: any ) {}
   }
   
   export class ActionSuccess implements Action {
